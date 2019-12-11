@@ -3,8 +3,8 @@
  * Copyright 2017-2019 NXP
  */
 
-#ifndef __IMX8QM_MEK_H
-#define __IMX8QM_MEK_H
+#ifndef __IMX8QM_ROM7720_H
+#define __IMX8QM_ROM7720_H
 
 #include <linux/sizes.h>
 #include <asm/arch/imx-regs.h>
@@ -91,7 +91,7 @@
 
 #if (CONFIG_FEC_ENET_DEV == 0)
 #define IMX_FEC_BASE			0x5B040000
-#define CONFIG_FEC_MXC_PHYADDR          0x0
+#define CONFIG_FEC_MXC_PHYADDR          0x4
 #define CONFIG_ETHPRIME                 "eth0"
 #elif (CONFIG_FEC_ENET_DEV == 1)
 #define IMX_FEC_BASE			0x5B050000
@@ -189,17 +189,18 @@
 	"image=Image\0" \
 	"panel=NULL\0" \
 	"console=ttyLP0\0" \
+        "earlycon=lpuart32,0x5a060000\0" \
 	"fdt_addr=0x83000000\0"			\
 	"fdt_high=0xffffffffffffffff\0"		\
 	"cntr_addr=0x98000000\0"			\
 	"cntr_file=os_cntr_signed.bin\0" \
 	"boot_fdt=try\0" \
-	"fdt_file=undefined\0" \
+	"fdt_file="__stringify(CONFIG_DEFAULT_DEVICE_TREE)".dtb\0" \
 	"mmcdev="__stringify(CONFIG_SYS_MMC_ENV_DEV)"\0" \
 	"mmcpart=" __stringify(CONFIG_SYS_MMC_IMG_LOAD_PART) "\0" \
 	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
 	"mmcautodetect=yes\0" \
-	"mmcargs=setenv bootargs console=${console},${baudrate} earlycon root=${mmcroot}\0 " \
+	"mmcargs=setenv bootargs console=${console},${baudrate} earlycon=${earlycon},${baudrate} root=${mmcroot}\0 " \
 	"loadbootscript=fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
 	"bootscript=echo Running bootscript from mmc ...; " \
 		"source\0" \
@@ -235,7 +236,7 @@
 				"echo wait for boot; " \
 			"fi;" \
 		"fi;\0" \
-	"netargs=setenv bootargs console=${console},${baudrate} earlycon " \
+	"netargs=setenv bootargs console=${console},${baudrate} earlycon=${earlycon},${baudrate} " \
 		"root=/dev/nfs " \
 		"ip=dhcp nfsroot=${serverip}:${nfsroot},v3,tcp\0" \
 	"netboot=echo Booting from net ...; " \
@@ -395,4 +396,4 @@
 #include "imx8qm_mek_android_auto.h"
 #endif
 
-#endif /* __IMX8QM_MEK_H */
+#endif /* __IMX8QM_ROM7720_H */

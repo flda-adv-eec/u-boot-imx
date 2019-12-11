@@ -418,7 +418,7 @@ int board_late_init(void)
 	bool m4_boot;
 
 #ifdef CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG
-	env_set("board_name", "MEK");
+	env_set("board_name", "ROM7720");
 	env_set("board_rev", "iMX8QM");
 #endif
 
@@ -434,7 +434,7 @@ int board_late_init(void)
 		if (m4_boot)
 			env_set("fdt_file", "fsl-imx8qm-mek-rpmsg.dtb");
 		else
-			env_set("fdt_file", "fsl-imx8qm-mek.dtb");
+			env_set("fdt_file", "imx8qm-rom7720-a1.dtb");
 	}
 
 #ifdef CONFIG_ENV_IS_IN_MMC
