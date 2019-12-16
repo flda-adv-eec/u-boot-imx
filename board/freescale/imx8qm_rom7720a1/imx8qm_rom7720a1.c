@@ -434,7 +434,7 @@ int board_late_init(void)
 		if (m4_boot)
 			env_set("fdt_file", "fsl-imx8qm-mek-rpmsg.dtb");
 		else
-			env_set("fdt_file", "imx8qm-rom7720-a1.dtb");
+			env_set("fdt_file", "fsl-imx8qm-mek.dtb");
 	}
 
 #ifdef CONFIG_ENV_IS_IN_MMC
