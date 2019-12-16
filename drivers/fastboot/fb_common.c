@@ -9,7 +9,9 @@
  * Copyright 2014 Linaro, Ltd.
  * Rob Herring <robh@kernel.org>
  */
-
+#define DEBUG 1
+#undef CONFIG_LOGLEVEL
+#define CONFIG_LOGLEVEL 8
 #include <common.h>
 #include <fastboot.h>
 #include <net/fastboot.h>
