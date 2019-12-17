@@ -3,8 +3,6 @@
  * Copyright 2019 NXP
  */
 #define DEBUG 1
-#undef CONFIG_LOGLEVEL
-#define CONFIG_LOGLEVEL 8
 
 #include <asm/mach-imx/sys_proto.h>
 #include <fb_fsl.h>
