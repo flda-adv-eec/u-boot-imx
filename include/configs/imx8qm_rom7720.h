@@ -2,9 +2,11 @@
 /*
  * Copyright 2017-2019 NXP
  */
-
+ 
 #ifndef __IMX8QM_ROM7720_H
 #define __IMX8QM_ROM7720_H
+
+#define DEBUG 1
 
 #include <linux/sizes.h>
 #include <asm/arch/imx-regs.h>
