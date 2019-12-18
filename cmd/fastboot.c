@@ -6,6 +6,9 @@
  * (C) Copyright 2014 Linaro, Ltd.
  * Rob Herring <robh@kernel.org>
  */
+
+#define DEBUG 1 
+
 #include <common.h>
 #include <command.h>
 #include <console.h>
